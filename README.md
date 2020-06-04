@@ -25,8 +25,8 @@ For further reference, please consider the following sections:
 
 # Endpoints
 
-* http://localhost:7001/springboot/api/test
-* http://localhost:7001/springboot/api/company
+* http://localhost:9081/springboot/api/health
+* http://localhost:9081/springboot/api/company
  
  <p>[
 {

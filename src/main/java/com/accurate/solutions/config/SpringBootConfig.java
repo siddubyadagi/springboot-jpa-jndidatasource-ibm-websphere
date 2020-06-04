@@ -1,3 +1,5 @@
+
+
 /**
  * 
  */
@@ -20,6 +22,8 @@ import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+
 /**
  * @author sidagond.byadagi
  *
@@ -38,7 +42,7 @@ public class SpringBootConfig {
 	@Bean(destroyMethod = "")
 	public DataSource jndiDataSource() throws IllegalArgumentException, NamingException {
 		JndiObjectFactoryBean bean = new JndiObjectFactoryBean();
-		bean.setJndiName("java:comp/env/"+databaseProperties().getJndiName());
+		bean.setJndiName(databaseProperties().getJndiName());
 		bean.setProxyInterface(DataSource.class);
 		bean.setLookupOnStartup(false);
 		bean.afterPropertiesSet();
@@ -65,4 +69,25 @@ public class SpringBootConfig {
 		txManager.setEntityManagerFactory(entityManagerFactory());
 		return txManager;
 	}
+//	private static final String JNDI_NAME = "jdbc/accurate";
+//	
+//	@Bean
+//    public static PropertySourcesPlaceholderConfigurer propertyPlaceholderConfigurer() {
+//      return new PropertySourcesPlaceholderConfigurer();
+//    }
+//
+//    @Bean
+//    @Primary
+//    public DataSource dataSource(){
+//        JndiDataSourceLookup jndiDataSourceLookup = new JndiDataSourceLookup();
+//        jndiDataSourceLookup.setResourceRef(true);
+//        return jndiDataSourceLookup.getDataSource(JNDI_NAME);
+//    }
+//
+//    @Bean
+//    public JdbcTemplate jdbcTemplate(){
+//      return new JdbcTemplate(dataSource());
+//    }
+	
+	
 }
